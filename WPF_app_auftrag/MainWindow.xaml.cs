@@ -23,17 +23,18 @@ namespace WPF_app_auftrag
         public MainWindow()
         {
             InitializeComponent();
+            AddLabelAndButton(LeftPanel);   //dazu da ein 
         }
 
         private void StartText_TextChanged(object sender, TextChangedEventArgs e)
         {
-            StartText.Text = "Start Text";
+            StartLabel.Content = "Start Text";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string randomText= GenerateRandomtext();
-            StartText.Text = randomText;
+            StartLabel.Content = randomText;
         }
         private string GenerateRandomtext()
         {
@@ -56,7 +57,7 @@ namespace WPF_app_auftrag
             SolidColorBrush colorButtonColor = new SolidColorBrush(GetRandomColor(random));
             SolidColorBrush layoutButtonColor = new SolidColorBrush(GetRandomColor(random));
 
-            StartText.Background = startTextColor;
+            StartLabel.Background = startTextColor;
             textbutton.Background = textButtonColor;
             colorbutton.Background = colorButtonColor;
             layoutbutton.Background = layoutButtonColor;
