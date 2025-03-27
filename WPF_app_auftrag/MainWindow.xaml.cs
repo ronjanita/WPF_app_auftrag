@@ -69,5 +69,10 @@ namespace WPF_app_auftrag
             Color randomColor = Color.FromRgb(r, g, b);   //Color.FromRgb ist eine methode wleche eine neue farbe rgb farbe aus den drei werten die vporer deklariert wurden anzeigt
             return randomColor;
         }
+
+        private void layoutbutton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
