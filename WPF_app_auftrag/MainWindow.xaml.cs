@@ -23,7 +23,6 @@ namespace WPF_app_auftrag
         public MainWindow()
         {
             InitializeComponent();
-            AddLabelAndButton(LeftPanel);   //dazu da ein 
         }
 
         private void StartText_TextChanged(object sender, TextChangedEventArgs e)
@@ -73,6 +72,30 @@ namespace WPF_app_auftrag
 
         private void layoutbutton_Click(object sender, RoutedEventArgs e)
         {
+            RightPanel.Children.Clear();
+            AddLabelAndButton(RightPanel);
+        }
+        private void AddLabelAndButton(StackPanel panel)
+        {
+            Label newLabel = new Label();
+            newLabel.Content = "Start Text";
+            newLabel.FontSize = 30;
+            newLabel.Margin = new Thickness(20);
+            panel.Children.Add(newLabel);
+
+            for (int i = 1; i <= 3; i++)
+            {
+                Button newButton = new Button();
+                newButton.Content = "Button " + i;
+                newButton.Width = 400;
+                newButton.Height = 53;
+                newButton.Margin = new Thickness(20);  // Etwas Abstand für die Buttons
+                newButton.Click += Button_Click_1;  // Event-Handler für den Button hinzufügen
+
+                // Füge den Button zum Panel hinzu
+                panel.Children.Add(newButton);
+            }
+
 
         }
     }
