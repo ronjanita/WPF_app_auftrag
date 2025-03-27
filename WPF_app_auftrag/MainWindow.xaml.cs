@@ -70,16 +70,14 @@ namespace WPF_app_auftrag
             return randomColor;
         }
 
+        public Panel RightPanel;
         private void layoutbutton_Click(object sender, RoutedEventArgs e)
         {
-            AddLabelAndButton(RightPanel);
-        }
-        private void AddLabelAndButton(StackPanel panel)
-        {
-            Label newLabel = new Label();
+               Label newLabel = new Label();
             newLabel.Content = "Start Text";
             newLabel.FontSize = 30;
             newLabel.Margin = new Thickness(20);
+            RightPanel.Children.Add(newLabel);
 
 
             for (int i = 1; i <= 3; i++)
@@ -90,12 +88,8 @@ namespace WPF_app_auftrag
                 newButton.Height = 53;
                 newButton.Margin = new Thickness(20);  // Etwas Abstand für die Buttons
                 newButton.Click += Button_Click_1;  // Event-Handler für den Button hinzufügen
-
-                // Füge den Button zum Panel hinzu
-                panel.Children.Add(newButton);
+                RightPanel.Children.Add(newButton);
             }
-
-
         }
     }
 }
