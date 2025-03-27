@@ -23,6 +23,7 @@
         <Label x:Name="StartLabel" Grid.Column="0" Grid.Row="0" Content="Start Text" FontSize="30" Margin="20,20,20,20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <Button x:Name="textbutton" Content="Change Text" Grid.Column="0" Grid.Row="1" Click="Button_Click"/>
         <Button x:Name="colorbutton" Content="Change Color" Grid.Column="0" Grid.Row="3" Click="Button_Click_1"/>
-        <Button x:Name="layoutbutton" Content="Add new layout" Grid.Column="0" Grid.Row="5" Click="layoutbutton_Click"/> 
+        <Button x:Name="layoutbutton" Content="Add new layout" Grid.Column="0" Grid.Row="5" Click="Layoutbutton_Click"/>
+        <StackPanel x:Name="RightPanel" Grid.Column="1" Grid.Row="0" Grid.RowSpan="7" Background="LightGray" />
     </Grid>
 </Window>

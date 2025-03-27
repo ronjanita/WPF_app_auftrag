@@ -70,10 +70,21 @@ namespace WPF_app_auftrag
             return randomColor;
         }
 
-        public Panel RightPanel;
-        private void layoutbutton_Click(object sender, RoutedEventArgs e)
+        private void Layoutbutton_Click(object sender, RoutedEventArgs e)
         {
-               Label newLabel = new Label();
+            if (RightPanel == null)
+            {
+                RightPanel = new StackPanel();
+                Grid.SetColumn(RightPanel, 1); // In die zweite Spalte setzen
+                Grid.SetRow(RightPanel, 0);    // In die erste Zeile setzen
+                Grid.SetRowSpan(RightPanel, 7); // Panel über mehrere Zeilen erstrecken lassen
+
+                // Das Grid-Element holen und RightPanel hinzufügen
+                Grid parentGrid = (Grid)this.Content;
+                parentGrid.Children.Add(RightPanel);
+            }
+            RightPanel = new StackPanel();
+            Label newLabel = new Label();
             newLabel.Content = "Start Text";
             newLabel.FontSize = 30;
             newLabel.Margin = new Thickness(20);
