@@ -20,20 +20,18 @@ namespace WPF_app_auftrag
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<string> labelList = new List<string>();
+        List<SolidColorBrush> buttonList = new List<SolidColorBrush>();
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void StartText_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            StartLabel.Content = "Start Text";
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string randomText= GenerateRandomtext();
+            string randomText = GenerateRandomtext();
             StartLabel.Content = randomText;
+            labelList.Add(StartLabel.Content.ToString());   
         }
         private string GenerateRandomtext()
         {
@@ -60,6 +58,11 @@ namespace WPF_app_auftrag
             textbutton.Background = textButtonColor;
             colorbutton.Background = colorButtonColor;
             layoutbutton.Background = layoutButtonColor;
+
+            buttonList.Add(startTextColor);
+            buttonList.Add(textButtonColor);
+            buttonList.Add(colorButtonColor);
+            buttonList.Add(layoutButtonColor);
         }
         private Color GetRandomColor(Random random)
         {
@@ -72,35 +75,12 @@ namespace WPF_app_auftrag
 
         private void Layoutbutton_Click(object sender, RoutedEventArgs e)
         {
-            if (RightPanel == null)
+            textbutton2.Click += Button_Click;
             {
-                RightPanel = new StackPanel();
-                Grid.SetColumn(RightPanel, 1); // In die zweite Spalte setzen
-                Grid.SetRow(RightPanel, 0);    // In die erste Zeile setzen
-                Grid.SetRowSpan(RightPanel, 7); // Panel über mehrere Zeilen erstrecken lassen
-
-                // Das Grid-Element holen und RightPanel hinzufügen
-                Grid parentGrid = (Grid)this.Content;
-                parentGrid.Children.Add(RightPanel);
+                labelList.Add(StartLabel2.Content.ToString());
             }
-            RightPanel = new StackPanel();
-            Label newLabel = new Label();
-            newLabel.Content = "Start Text";
-            newLabel.FontSize = 30;
-            newLabel.Margin = new Thickness(20);
-            RightPanel.Children.Add(newLabel);
-
-
-            for (int i = 1; i <= 3; i++)
-            {
-                Button newButton = new Button();
-                newButton.Content = "Button " + i;
-                newButton.Width = 400;
-                newButton.Height = 53;
-                newButton.Margin = new Thickness(20);  // Etwas Abstand für die Buttons
-                newButton.Click += Button_Click_1;  // Event-Handler für den Button hinzufügen
-                RightPanel.Children.Add(newButton);
-            }
+            colorbutton2.Click += Button_Click_1;
+            layoutbutton2.Click += Layoutbutton_Click;
         }
     }
 }

@@ -13,17 +13,20 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="225"/>
-            <RowDefinition Height="53"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="53"/>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="53"/>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+           
+            <RowDefinition Height="*"/>
+
+            <RowDefinition Height="*"/>
+        
         </Grid.RowDefinitions>
         <Label x:Name="StartLabel" Grid.Column="0" Grid.Row="0" Content="Start Text" FontSize="30" Margin="20,20,20,20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Button x:Name="textbutton" Content="Change Text" Grid.Column="0" Grid.Row="1" Click="Button_Click"/>
-        <Button x:Name="colorbutton" Content="Change Color" Grid.Column="0" Grid.Row="3" Click="Button_Click_1"/>
-        <Button x:Name="layoutbutton" Content="Add new layout" Grid.Column="0" Grid.Row="5" Click="Layoutbutton_Click"/>
-        <StackPanel x:Name="RightPanel" Grid.Column="1" Grid.Row="0" Grid.RowSpan="7" Background="LightGray" />
+        <Button x:Name="textbutton" Content="Change Text" Grid.Column="0" Grid.Row="1" Click="Button_Click" Height="50"/>
+        <Button x:Name="colorbutton" Content="Change Color" Grid.Column="0" Grid.Row="2" Click="Button_Click_1" Height="50"/>
+        <Button x:Name="layoutbutton" Content="Add new layout" Grid.Column="0" Grid.Row="3" Click="Layoutbutton_Click" Height="50"/>
+        <Label x:Name="StartLabel2" Grid.Column="1" Grid.Row="0" Content="Start Text" FontSize="30" Margin="20,20,20,20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button x:Name="textbutton2" Content="Change Text" Grid.Column="1" Grid.Row="1" Click="Layoutbutton_Click" Height="50"/>
+        <Button x:Name="colorbutton2" Content="Change Color" Grid.Column="1" Grid.Row="2" Click="Layoutbutton_Click" Height="50"/>
+        <Button x:Name="layoutbutton2" Content="Add new layout" Grid.Column="1" Grid.Row="3" Click="Layoutbutton_Click" Height="50"/>
     </Grid>
 </Window>
