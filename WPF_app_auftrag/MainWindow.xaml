@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WPF_app_auftrag"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid x:Name="basicGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="*"/>
@@ -14,19 +14,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="225"/>
             <RowDefinition Height="*"/>
-           
             <RowDefinition Height="*"/>
-
             <RowDefinition Height="*"/>
-        
         </Grid.RowDefinitions>
         <Label x:Name="StartLabel" Grid.Column="0" Grid.Row="0" Content="Start Text" FontSize="30" Margin="20,20,20,20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         <Button x:Name="textbutton" Content="Change Text" Grid.Column="0" Grid.Row="1" Click="Button_Click" Height="50"/>
         <Button x:Name="colorbutton" Content="Change Color" Grid.Column="0" Grid.Row="2" Click="Button_Click_1" Height="50"/>
         <Button x:Name="layoutbutton" Content="Add new layout" Grid.Column="0" Grid.Row="3" Click="Layoutbutton_Click" Height="50"/>
-        <Label x:Name="StartLabel2" Grid.Column="1" Grid.Row="0" Content="Start Text" FontSize="30" Margin="20,20,20,20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Button x:Name="textbutton2" Content="Change Text" Grid.Column="1" Grid.Row="1" Click="Layoutbutton_Click" Height="50"/>
-        <Button x:Name="colorbutton2" Content="Change Color" Grid.Column="1" Grid.Row="2" Click="Layoutbutton_Click" Height="50"/>
-        <Button x:Name="layoutbutton2" Content="Add new layout" Grid.Column="1" Grid.Row="3" Click="Layoutbutton_Click" Height="50"/>
     </Grid>
 </Window>

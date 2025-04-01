@@ -20,18 +20,23 @@ namespace WPF_app_auftrag
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<string> labelList = new List<string>();
-        List<SolidColorBrush> buttonList = new List<SolidColorBrush>();
+        List<Label> LabelList = new List<Label>();
+        List<Button> ButtonList = new List<Button>();
         public MainWindow()
         {
             InitializeComponent();
+            LabelList.Add(StartLabel);
+            ButtonList.Add(textbutton);
+            ButtonList.Add(colorbutton);
+            ButtonList.Add(layoutbutton);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string randomText = GenerateRandomtext();
-            StartLabel.Content = randomText;
-            labelList.Add(StartLabel.Content.ToString());   
+            foreach (Label label in LabelList)
+            {
+                label.Content = GenerateRandomtext();
+            }
         }
         private string GenerateRandomtext()
         {
@@ -48,39 +53,76 @@ namespace WPF_app_auftrag
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Random random = new Random();
-            SolidColorBrush startTextColor = new SolidColorBrush(GetRandomColor(random));
-            SolidColorBrush textButtonColor = new SolidColorBrush(GetRandomColor(random));
-            SolidColorBrush colorButtonColor = new SolidColorBrush(GetRandomColor(random));
-            SolidColorBrush layoutButtonColor = new SolidColorBrush(GetRandomColor(random));
+            //Random random = new Random();
+            //SolidColorBrush startTextColor = new SolidColorBrush(GetRandomColor(random));
+            //SolidColorBrush textButtonColor = new SolidColorBrush(GetRandomColor(random));
+            //SolidColorBrush colorButtonColor = new SolidColorBrush(GetRandomColor(random));
+            //SolidColorBrush layoutButtonColor = new SolidColorBrush(GetRandomColor(random));
 
-            StartLabel.Background = startTextColor;
-            textbutton.Background = textButtonColor;
-            colorbutton.Background = colorButtonColor;
-            layoutbutton.Background = layoutButtonColor;
-
-            buttonList.Add(startTextColor);
-            buttonList.Add(textButtonColor);
-            buttonList.Add(colorButtonColor);
-            buttonList.Add(layoutButtonColor);
+            //StartLabel.Background = startTextColor;
+            //textbutton.Background = textButtonColor;
+            //colorbutton.Background = colorButtonColor;
+            //layoutbutton.Background = layoutButtonColor;
+            foreach (Button button in ButtonList)
+            {
+                button.Background = new SolidColorBrush(GetRandomColor());
+            }
         }
-        private Color GetRandomColor(Random random)
+        private Color GetRandomColor()
         {
+            Random random = new Random();
             byte r = (byte)random.Next(256);  // Rot
             byte g = (byte)random.Next(256);  // Grün
             byte b = (byte)random.Next(256);  // Blau
             Color randomColor = Color.FromRgb(r, g, b);   //Color.FromRgb ist eine methode wleche eine neue farbe rgb farbe aus den drei werten die vporer deklariert wurden anzeigt
             return randomColor;
         }
-
+     
         private void Layoutbutton_Click(object sender, RoutedEventArgs e)
         {
-            textbutton2.Click += Button_Click;
+            Label newLabel = new Label
             {
-                labelList.Add(StartLabel2.Content.ToString());
-            }
-            colorbutton2.Click += Button_Click_1;
-            layoutbutton2.Click += Layoutbutton_Click;
+                Content = "Start Text",
+                FontSize = 30,
+                Width = 400,
+                Height = 225
+            };
+            Grid.SetRow(newLabel, 0);
+            Grid.SetColumn(newLabel, 1);
+            basicGrid.Children.Add(newLabel);
+
+            Button textbutton = new Button
+            {
+                Content = "Change text",
+                Width = 400,
+                Height = 50
+            };
+            textbutton.Click += Button_Click;
+            Grid.SetRow(textbutton, 1);
+            Grid.SetColumn(textbutton, 1);
+            basicGrid.Children.Add(textbutton);
+
+            Button colorbutton = new Button
+            {
+                Content = "Change color",
+                Width = 400,
+                Height = 50
+            };
+            colorbutton.Click += Button_Click_1;
+            Grid.SetRow(colorbutton, 2);
+            Grid.SetColumn(colorbutton, 1);
+            basicGrid.Children.Add(colorbutton);
+
+            Button layoutbutton = new Button
+            {
+                Content = "Change color",
+                Width = 400,
+                Height = 50
+            };
+            layoutbutton.Click += Layoutbutton_Click;
+            Grid.SetRow(layoutbutton, 3);
+            Grid.SetColumn(layoutbutton, 1);
+            basicGrid.Children.Add(layoutbutton);
         }
     }
 }
