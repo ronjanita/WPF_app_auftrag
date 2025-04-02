@@ -63,14 +63,15 @@ namespace WPF_app_auftrag
             //textbutton.Background = textButtonColor;
             //colorbutton.Background = colorButtonColor;
             //layoutbutton.Background = layoutButtonColor;
+            Random random = new Random();
             foreach (Button button in ButtonList)
             {
-                button.Background = new SolidColorBrush(GetRandomColor());
+                //System.Threading.Thread.Sleep(2000);
+                button.Background = new SolidColorBrush(GetRandomColor(random));
             }
         }
-        private Color GetRandomColor()
+        private Color GetRandomColor(Random random)
         {
-            Random random = new Random();
             byte r = (byte)random.Next(256);  // Rot
             byte g = (byte)random.Next(256);  // Grün
             byte b = (byte)random.Next(256);  // Blau
@@ -85,11 +86,15 @@ namespace WPF_app_auftrag
                 Content = "Start Text",
                 FontSize = 30,
                 Width = 400,
-                Height = 225
+                Height = 225,
+                Margin = new Thickness(20),
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center
             };
             Grid.SetRow(newLabel, 0);
             Grid.SetColumn(newLabel, 1);
             basicGrid.Children.Add(newLabel);
+            LabelList.Add(newLabel);
 
             Button textbutton = new Button
             {
@@ -101,6 +106,7 @@ namespace WPF_app_auftrag
             Grid.SetRow(textbutton, 1);
             Grid.SetColumn(textbutton, 1);
             basicGrid.Children.Add(textbutton);
+            ButtonList.Add(textbutton);
 
             Button colorbutton = new Button
             {
@@ -112,10 +118,12 @@ namespace WPF_app_auftrag
             Grid.SetRow(colorbutton, 2);
             Grid.SetColumn(colorbutton, 1);
             basicGrid.Children.Add(colorbutton);
+            ButtonList.Add(colorbutton);
+
 
             Button layoutbutton = new Button
             {
-                Content = "Change color",
+                Content = "Change layout",
                 Width = 400,
                 Height = 50
             };
@@ -123,6 +131,8 @@ namespace WPF_app_auftrag
             Grid.SetRow(layoutbutton, 3);
             Grid.SetColumn(layoutbutton, 1);
             basicGrid.Children.Add(layoutbutton);
+            ButtonList.Add(layoutbutton);
+
         }
     }
 }
